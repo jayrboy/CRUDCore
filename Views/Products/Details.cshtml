@@ -1,0 +1,29 @@
+﻿@model CRUDCore.Models.db.Product
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 class="alert-primary text-center col-md-6">รายละเอียดสินค้า</h3>
+<hr />
+<div class="card col-md-6 border-success">
+    <div class="card-header alert-success">
+        <h2>
+            @Html.DisplayFor(model => model.ProductId) :
+            @Html.DisplayFor(model => model.ProductName)
+        </h2>
+    </div>
+    <div class="card-body">
+        <div class="card-text">ราคา : @Html.DisplayFor(model => model.UnitPrice)</div>
+        <div class="card-text">จำนวน/หน่วย : @Html.DisplayFor(model => model.QuantityPerUnit)</div>
+        <div class="card-text">สต๊อก : @Html.DisplayFor(model => model.UnitsInStock)</div>
+        <div class="card-text">สั่งซื้อ : @Html.DisplayFor(model => model.UnitsOnOrder)</div>
+        <div class="card-text">จุดสั่งซื้อ : @Html.DisplayFor(model => model.ReorderLevel)</div>
+        <div class="card-text">ประเภทสินค้า : @Html.DisplayFor(model => model.Category.CategoryName)</div>
+        <div class="card-text">บริษัทจัดจำหน่าย : @Html.DisplayFor(model => model.Supplier.CompanyName)</div>
+    </div>
+    <div class="card-footer">
+        <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning">แก้ไขข้อมูล</a>
+        <a asp-action="Index" class="btn btn-primary">แสดงสินค้าทั้งหมด</a>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CRUDCore.Models.db.Product>
+
+@{
+    ViewData["Title"] = "Search Products";
+}
+
+<h3><a href="/" class="btn btn-primary">กลับหน้าหลัก</a></h3>
+<table class="table table-striped table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>รหัสสินค้า</th>
+            <th>ชื่อสินค้า</th>
+            <th>ราคาสินค้า</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.ProductId</td>
+                <td>@item.ProductName</td>
+                <td>@item.UnitPrice</td>
+            </tr>
+        }
+    </tbody>
+</table>

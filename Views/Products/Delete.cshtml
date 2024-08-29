@@ -1,0 +1,34 @@
+﻿@model CRUDCore.Models.db.Product
+
+@{
+    ViewData["Title"] = "ลบข้อมูลสินค้า";
+}
+
+<h3 class="alert-danger col-md-6 text-center">ลบข้อมูลสินค้า</h3>
+<hr />
+<div class="card col-md-6 border-danger">
+    <div class="card-header alert-danger">
+        <h2>
+            @Html.DisplayFor(model => model.ProductId) :
+            @Html.DisplayFor(model => model.ProductName)
+        </h2>
+    </div>
+
+    <div class="card-body">
+        <div class="card-text">ราคา : @Html.DisplayFor(model => model.UnitPrice)</div>
+        <div class="card-text">ราคา/หน่วย : @Html.DisplayFor(model => model.QuantityPerUnit)</div>
+        <div class="card-text">สต๊อก : @Html.DisplayFor(model => model.UnitsInStock)</div>
+        <div class="card-text">สั่งซื้อ : @Html.DisplayFor(model => model.UnitsOnOrder) </div>
+        <div class="card-text">จุดสั่งซื้อ : @Html.DisplayFor(model => model.ReorderLevel)</div>
+        <div class="card-text">ประเภทสินค้า : @Html.DisplayFor(model => model.Category.CategoryName)</div>
+        <div class="card-text">บริษัทจัดจำหน่าย : @Html.DisplayFor(model => model.Supplier.CompanyName)</div>
+    </div>
+
+    <div class="card-footer">
+        <form asp-action="Delete">
+            <input type="hidden" asp-for="ProductId" />
+            <input type="submit" value="ลบข้อมูล" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-primary">แสดงสินค้าทั้งหมด</a>
+        </form>
+    </div>
+</div>

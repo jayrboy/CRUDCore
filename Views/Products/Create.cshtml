@@ -1,0 +1,50 @@
+﻿@model CRUDCore.Models.db.Product
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h3 class="alert-success text-center col-md-6">เพิ่มสินค้าใหม่</h3>
+<div class="col-md-6 card card-body">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="ProductName" class="control-label">ชื่อสินค้า</label>
+            <input asp-for="ProductName" class="form-control" placeholder="น้ำผลไม้รวม" />
+            <span asp-validation-for="ProductName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="SupplierId" class="control-label">บริษัทจำหน่าย</label>
+            <select asp-for="SupplierId" class="form-control" asp-items="ViewBag.SupplierId"></select>
+            <span asp-validation-for=" SupplierId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CategoryId" class="control-label">ประเภทสินค้า</label>
+            <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
+            <span asp-validation-for=" CategoryId" class="text-danger"></span>
+        </div>
+        <div class="form-group mb-2">
+            <label asp-for="QuantityPerUnit" class="control-label">จำหน่าย/หน่วย</label>
+            <input asp-for="QuantityPerUnit" class="form-control" placeholder="300" />
+            <span asp-validation-for="QuantityPerUnit" class="text-danger"></span>
+        </div>
+        <div class="form-group form-check mb-2">
+            <label class="form-check-label">
+                <input class="form-check-input" asp-for="Discontinued" />
+                ยกเลิกจำหน่าย?
+            </label>
+        </div>
+        <div class="d-grid gap-2 mb-2">
+            <input type="submit" value="เพิ่มสินค้าใหม่" class="btn btn-success" />
+        </div>
+    </form>
+    <div class="d-grid gap-2">
+        <a asp-action="Index" class="btn btn-primary">แสดงสินค้าทั้งหมด</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
